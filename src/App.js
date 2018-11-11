@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+      this.state = {
+        cont: 0
+      }
+  }
+
+  add = () => this.setState({cont: this.state.cont + 1});
+  sub = () => this.setState({cont: this.state.cont - 1});
+  reset = () => this.setState({cont: 0});
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+
+        <p>{this.state.cont}</p>
+        <button onClick={this.add}>+</button>
+        <button onClick={this.sub}>-</button>
+        <button onClick={this.reset}>zero</button>
       </div>
     );
   }
